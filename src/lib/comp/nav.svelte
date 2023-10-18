@@ -18,7 +18,7 @@
 			<a href="https://joshua861.github.io"><Globe class="hover:stroke-sky-500 transition-all" /></a
 			>
 			<a href="/rss/"><Rss class="hover:stroke-sky-500 transition-all" /></a>
-			<a class="hidden md:inline" href="https://github.com/joshua861"
+			<a class="hidden md:inline" href="https://github.com/joshua861/blog-svelte"
 				><Code2 class="hover:stroke-sky-500 transition-all" /></a
 			>
 		</div>
