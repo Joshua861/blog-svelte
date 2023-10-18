@@ -1,5 +1,5 @@
 <script>
-	import { Github, Globe } from 'lucide-svelte';
+	import { Github, Globe, Rss } from 'lucide-svelte';
 </script>
 
 <nav
@@ -17,6 +17,7 @@
 			>
 			<a href="https://joshua861.github.io"><Globe class="hover:stroke-sky-500 transition-all" /></a
 			>
+			<a href="/rss/"><Rss class="hover:stroke-sky-500 transition-all" /></a>
 		</div>
 	</div>
 	<div class="h-3" />
