@@ -22,26 +22,19 @@
 			on:click={doNothing}
 		>
 			<button on:click={disableMenu}><X class="m-3" size="32" /></button>
-			<ul class="text-3xl list-none" transition:fade={{ delay: 75 }}>
-				<li>
-					<a href="/rss/">
-						<Rss class="inline-block pr-2" /> RSS
-					</a>
-				</li>
-				<li>
-					<a href="https://joshua861.github.io"
-						><Globe class="inline-block pr-2" />My other websites</a
-					>
-				</li>
-				<li>
-					<a href="https://github.com/joshua861"><Github class="inline-block pr-2" />My GitHub</a>
-				</li>
-				<li>
-					<a href="https://github.com/joshua861/blog-svelte"
-						><Code2 class="inline-block pr-2" />Source code</a
-					>
-				</li>
-			</ul>
+			<div class="pl-5 text-3xl list-none" transition:fade={{ delay: 75 }}>
+				<a href="/rss/">
+					<Rss class="inline-block pr-2" /> RSS
+				</a><br />
+				<a href="https://joshua861.github.io"
+					><Globe class="inline-block pr-2" />My other websites</a
+				><br />
+				<a href="https://github.com/joshua861"><Github class="inline-block pr-2" />My GitHub</a><br
+				/>
+				<a href="https://github.com/joshua861/blog-svelte"
+					><Code2 class="inline-block pr-2" />Source code</a
+				><br />
+			</div>
 		</div>
 	</div>
 {/if}

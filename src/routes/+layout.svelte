@@ -3,6 +3,7 @@
 	import { fade } from 'svelte/transition';
 	import '../app.postcss';
 	export let data;
+	import remarkGfm from 'remark-gfm';
 </script>
 
 <Nav class="w-full" />
