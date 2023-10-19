@@ -22,7 +22,7 @@
 			on:click={doNothing}
 		>
 			<button on:click={disableMenu}><X class="m-3" size="32" /></button>
-			<div class="pl-5 text-3xl list-none" transition:fade={{ delay: 75 }}>
+			<div class="pl-5 text-2xl list-none" transition:fade={{ delay: 75 }}>
 				<a href="/rss/">
 					<Rss class="inline-block pr-2" /> RSS
 				</a><br />
