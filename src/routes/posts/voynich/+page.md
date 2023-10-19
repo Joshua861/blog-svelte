@@ -1,7 +1,7 @@
 ---
 title: The Voynich Manuscript
 date: 2023-07-25
-description: "Written on vellum, the Voynich Manuscript dates back to the early 15th century, with carbon dating placing it between 1404 and 1438."
+description: 'Written on vellum, the Voynich Manuscript dates back to the early 15th century, with carbon dating placing it between 1404 and 1438.'
 ---
 
 Written on vellum, the Voynich Manuscript dates back to the early 15th century, with carbon dating placing it between 1404 and 1438. The script used in the manuscript, known as 'Voynichese,' remains an enigma, as it has yet to be linked to any known language or writing system. Stylistic analysis suggests that it may have originated during the Italian Renaissance.

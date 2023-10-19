@@ -6,11 +6,41 @@
 
 body {
 	@apply bg-zinc-100 dark:bg-zinc-900;
+	overflow: hidden;
 	font-family: 'Inter', sans-serif;
 }
 
 h2 {
-@apply w-full border-b-2 dark:border-zinc-800 border-zinc-200 pb-1
+	@apply w-full border-b-2 dark:border-zinc-800 border-zinc-200 pb-1;
+}
+
+:where(h2, h3, h4, h5, h6) {
+	.icon-link {
+		position: relative;
+
+		&::before {
+			content: '#';
+			position: absolute;
+			left: -1.5ch;
+			top: 0.2ch;
+			line-height: 1;
+			opacity: 0;
+			@apply dark:text-zinc-700 text-zinc-300;
+		}
+	}
+
+	&:hover .icon-link::before {
+		opacity: 1;
+	}
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	text-wrap: balance;
 }
 
 body.dark {

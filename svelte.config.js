@@ -1,6 +1,9 @@
 import adapter from '@sveltejs/adapter-auto';
 import { vitePreprocess } from '@sveltejs/kit/vite';
 import { mdsvex } from 'mdsvex';
+import rehypeSlug from 'rehype-slug';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import autoprefixer from 'autoprefixer';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -9,12 +12,17 @@ const config = {
 	extensions: ['.svelte', '.md'],
 
 	preprocess: [
-		vitePreprocess({}),
+		vitePreprocess({
+			postcss: {
+				plugins: [autoprefixer]
+			}
+		}),
 		mdsvex({
 			layout: {
 				posts: 'src/lib/comp/post.svelte'
 			},
-			extensions: ['.md']
+			extensions: ['.md'],
+			rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings]
 		})
 	],
 

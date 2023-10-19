@@ -10,10 +10,10 @@ description: "The credits for the video version of 'The history of programming l
 
 - Programming in the punch card era - [Bundesarchiv, B 145 Bild-F031434-0006 / Gathmann, Jens / CC-BY-SA 3.0](https://commons.wikimedia.org/wiki/File:Bundesarchiv_B_145_Bild-F031434-0006,_Aachen,_Technische_Hochschule,_Rechenzentrum.jpg), [CC BY-SA 3.0 DE](https://creativecommons.org/licenses/by-sa/3.0/de/deed.en), via Wikimedia Commons
 - Babbage Difference Engine - [User:geni](https://commons.wikimedia.org/wiki/File:Babbage_Difference_Engine.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0), via Wikimedia Commons
-- Analytical Engine - [Charles Babbage](https://commons.wikimedia.org/wiki/File:Babbages_Analytical_Engine,_1834-1871._(9660574685).jpg), [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0), via Wikimedia Commons
+- Analytical Engine - [Charles Babbage](<https://commons.wikimedia.org/wiki/File:Babbages_Analytical_Engine,_1834-1871._(9660574685).jpg>), [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0), via Wikimedia Commons
 - Turing Machine - [Rocky Acosta](https://commons.wikimedia.org/wiki/File:Turing_Machine_Model_Davey_2012.jpg), [CC BY 3.0](https://creativecommons.org/licenses/by/3.0), via Wikimedia Commons
 - Parallel Computing - [Argonne National Laboratory's Flickr page](https://commons.wikimedia.org/wiki/File:IBM_Blue_Gene_P_supercomputer.jpg), [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0), via Wikimedia Commons
-- Pierce demonstrates an IBM computer - [University of Texas at Arlington News Service Photograph Collection](https://commons.wikimedia.org/wiki/File:M._L._Pierce_demonstrates_an_IBM_computer_at_the_University_of_Texas_at_Arlington_(10002859).jpg), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0), via Wikimedia Commons
+- Pierce demonstrates an IBM computer - [University of Texas at Arlington News Service Photograph Collection](<https://commons.wikimedia.org/wiki/File:M._L._Pierce_demonstrates_an_IBM_computer_at_the_University_of_Texas_at_Arlington_(10002859).jpg>), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0), via Wikimedia Commons
 
 ### Music
 
