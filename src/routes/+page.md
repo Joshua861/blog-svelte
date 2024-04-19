@@ -4,5 +4,5 @@ This is a place for me to put text. Made with ❤, [SvelteKit](https://kit.svelt
 
 ## Links
 
-- [My other websites](https://joshua861.github.io)
+- [My other websites](https://joshrl.dev)
 - [Github](https://github.com/Joshua861/)

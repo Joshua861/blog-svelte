@@ -5,7 +5,7 @@
 	export let data;
 </script>
 
-<Nav class="w-full" />
+<Nav />
 
 {#key data.currentRoute}
 	<div

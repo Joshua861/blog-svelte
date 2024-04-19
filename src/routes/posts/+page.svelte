@@ -6,11 +6,11 @@
 <h1>Posts</h1>
 
 {#each data.posts as post}
-	<h2>
-		<a class="font-bold" href={post.path}>
+	<h3>
+		<a class="font-bold mb-0" href={post.path}>
 			{post.meta.title}
 		</a>
-	</h2>
+	</h3>
 	<p>
 		<span class="text-sm text-zinc-500 italic">
 			Published <Time class="" timestamp={post.meta.date} />
@@ -19,4 +19,5 @@
 			{post.meta.description}
 		</span>
 	</p>
+	<hr>
 {/each}

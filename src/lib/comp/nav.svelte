@@ -13,16 +13,19 @@
 
 {#if showMenu}
 	<div
-		class="w-screen h-screen prose dark:prose-invert transition-all fixed z-10 backdrop-blur-md prose-a:no-underline"
+		class="w-screen h-screen prose dark:prose-invert transition-all fixed z-10 backdrop-blur-md prose-a:no-underline flex justify-end"
 		on:click={disableMenu}
 	>
 		<div
-			class="absolute h-screen bg-neutral-200 dark:bg-neutral-800 w-8/12 p-0 m-0 z-20 drop-shadow-xl"
+			class="absolute h-screen bg-neutral-200 dark:bg-neutral-800 w-10/12 p-0 m-0 z-20 drop-shadow-xl"
 			transition:slide={{ axis: 'x', duration: 100 }}
 			on:click={doNothing}
 		>
+		<div class="flex justify-end align-middle">
+
 			<button on:click={disableMenu}><X class="m-3" size="32" /></button>
-			<div class="pl-5 text-2xl list-none" transition:fade={{ delay: 75 }}>
+		</div>
+			<div class="pl-5 text-2xl [&>*]:my-2" transition:fade={{ delay: 75 }}>
 				<a href="/rss/">
 					<Rss class="inline-block pr-2" /> RSS
 				</a><br />
@@ -40,7 +43,7 @@
 {/if}
 
 <nav
-	class="max-w-[999em] h-12 h-fit pb-4 bg-zinc-100/30 dark:bg-zinc-900/30 backdrop-blur-lg top-0 prose dark:prose-invert prose-a:text-xl prose-a:no-underline prose-a:font-bold prose-a:mx-4 prose-a:mt-4 prose-a:decoration-2 prose-a:cursor-pointer"
+	class="sticky max-w-[999em] h-12 h-fit pb-4 bg-zinc-100/30 dark:bg-zinc-900/30 backdrop-blur-lg top-0 prose dark:prose-invert prose-a:text-xl prose-a:no-underline prose-a:font-bold prose-a:mx-4 prose-a:mt-4 prose-a:decoration-2 prose-a:cursor-pointer"
 >
 	<div class="h-3" />
 	<div class=" mx-5">
@@ -52,7 +55,7 @@
 			<a href="https://github.com/joshua861"
 				><Github class="hover:stroke-sky-500 transition-all" /></a
 			>
-			<a href="https://joshua861.github.io"><Globe class="hover:stroke-sky-500 transition-all" /></a
+			<a href="https://joshrl.dev"><Globe class="hover:stroke-sky-500 transition-all" /></a
 			>
 			<a href="/rss/"><Rss class="hover:stroke-sky-500 transition-all" /></a>
 			<a class="hidden md:inline" href="https://github.com/joshua861/blog-svelte"
