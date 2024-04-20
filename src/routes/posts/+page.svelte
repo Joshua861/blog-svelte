@@ -19,5 +19,5 @@
 			{post.meta.description}
 		</span>
 	</p>
-	<hr>
+	<hr />
 {/each}
