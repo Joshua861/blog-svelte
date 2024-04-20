@@ -55,7 +55,7 @@
 		<div class="h-3" />
 		
 		{#if showMenu}
-			<div class="rounded-xl h-fit dark:bg-zinc-800 bg-zinc-300 m-3 p-5 prose dark:prose-invert" transition:slide>
+			<div class="rounded-xl h-fit dark:bg-zinc-800 bg-zinc-200 m-3 p-5 prose dark:prose-invert" transition:slide>
 				{#each links as link}
 				<li class="list-none w-max ml-0">
 					<a href={link.href}>
