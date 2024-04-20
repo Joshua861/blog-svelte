@@ -1,4 +1,5 @@
 const typography = require('@tailwindcss/typography');
+const forms = require('@tailwindcss/forms');
 
 /** @type {import('tailwindcss').Config}*/
 const config = {
@@ -8,7 +9,7 @@ const config = {
 		extend: {}
 	},
 
-	plugins: [typography]
+	plugins: [typography, forms]
 };
 
 module.exports = config;
