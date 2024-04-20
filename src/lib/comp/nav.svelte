@@ -1,7 +1,7 @@
 <script>
 	import { page } from '$app/stores';
 	import { Github, Globe, Rss, Code2, Menu, X } from 'lucide-svelte';
-	import { slide, fade } from 'svelte/transition';
+	import { slide } from 'svelte/transition';
 
 	let showMenu = false;
 
@@ -58,8 +58,8 @@
 			<div class="rounded-xl h-fit dark:bg-zinc-800 bg-zinc-300 m-3 p-5 prose dark:prose-invert" transition:slide>
 				{#each links as link}
 				<li class="list-none w-max ml-0">
-					<a href={link.href} class="px-3">
-							<svelte:component this={link.icon} class="inline" /> <span class="font-normal hover:underline">{link.name}</span>
+					<a href={link.href}>
+							<svelte:component this={link.icon} class="inline mr-3" /> <span class="font-normal hover:underline">{link.name}</span>
 					</a>
 				</li>
 				{/each}
