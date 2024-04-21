@@ -6,10 +6,10 @@
 	let comments = [];
 
 	onMount(async () => {
-		fetchNotes();
+		fetchComments();
 	});
 
-	export async function fetchNotes() {
+	export async function fetchComments() {
 		const response = await fetch(`/api/comments/get?postID=${encodeURIComponent(pathname)}`);
 		console.log(response);
 

@@ -7,7 +7,7 @@
 	import { slide } from 'svelte/transition';
 
 	let showMenu = false;
-	let searchMenu = true;
+	let searchMenu = false;
 	let search: string = '';
 	let posts, fuse: any, results;
 
