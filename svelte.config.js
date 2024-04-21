@@ -12,18 +12,18 @@ const config = {
 	extensions: ['.svelte', '.md'],
 
 	preprocess: [
-		vitePreprocess({
-			postcss: {
-				plugins: [autoprefixer]
-			}
-		}),
 		mdsvex({
 			layout: {
 				posts: 'src/lib/comp/post.svelte'
 			},
 			extensions: ['.md'],
 			rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings]
-		})
+		}),
+		vitePreprocess({
+			postcss: {
+				plugins: [autoprefixer]
+			}
+		}),
 	],
 
 	kit: {
