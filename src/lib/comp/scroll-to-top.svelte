@@ -1,5 +1,6 @@
 <script>
 	import { ChevronUp } from 'lucide-svelte';
+	import { fade } from 'svelte/transition';
 
 	let showButton = false;
 
@@ -17,12 +18,14 @@
 	}
 </script>
 
-<button
-	on:click={topFunction}
-	class="fixed bottom-4 right-4 p-2 bg-sky-500/20 hover:bg-sky-500/40 transition-all dark:text-white text-black rounded-full backdrop-blur-md"
-	style="display: {showButton ? 'block' : 'none'}"
->
-	<ChevronUp />
-</button>
+{#if showButton}
+	<button
+		transition:fade
+		on:click={topFunction}
+		class="fixed bottom-4 right-4 p-2 bg-sky-500/20 hover:bg-sky-500/40 transition-all dark:text-white text-black rounded-full backdrop-blur-md"
+	>
+		<ChevronUp />
+	</button>
+{/if}
 
 <svelte:window on:scroll={scrollFunction} />
