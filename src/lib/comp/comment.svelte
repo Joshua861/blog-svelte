@@ -23,7 +23,7 @@
 			<Commentbox replyID={comment.id} />
 		</div>
 	{/if}
-	<div class="pl-4 border-l-4 border-zinc-500">
+	<div class="pl-4 border-l-4 border-zinc-500/30">
 		{#each comment.replies as reply}
 			<Comment comment={reply} />
 		{/each}
