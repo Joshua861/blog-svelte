@@ -2,6 +2,7 @@
 	import Fuse from 'fuse.js';
 	import { Star } from 'lucide-svelte';
 	import { onMount } from 'svelte';
+	import PostIcon from './post-icon.svelte';
 
 	export let pathname;
 
@@ -17,16 +18,12 @@
 
 		post = posts!.find((post) => post.path == `${pathname}/`);
 
-		let fuse = new Fuse(posts, { keys: ['meta.tags'] });
+		let fuse = new Fuse(posts, { keys: ['meta.tags', 'meta.title', 'meta.description'] });
 		let tags = '';
 
 		post.meta.tags.forEach((tag) => {
 			tags += `${tag} `;
 		});
-
-		function searchFor(str: string) {
-			window.location = `?q=${str}`;
-		}
 
 		console.log(tags);
 
@@ -39,6 +36,11 @@
 			})
 			.slice(0, 2);
 	});
+
+	function searchFor(str: string) {
+		event?.preventDefault();
+		window.location = `?q=${str}`;
+	}
 </script>
 
 {#if relatedPosts && posts}
@@ -46,30 +48,7 @@
 		<h3>Related posts</h3>
 		<div class="flex flex-col gap-3">
 			{#each relatedPosts as post}
-				<a class="no-underline hover:dark:text-zinc-100 hover:text-zinc-900" href={post.item.path}>
-					<div
-						class="bg-zinc-200/50 border border-zinc-500/20 dark:bg-zinc-800/50 rounded-xl hover:bg-sky-300/20 transition-all dark:hover:bg-sky-700/20 p-3"
-					>
-						<strong class="text-lg">{post.item.meta.title}</strong>
-						{#if post.item.meta.good}
-							<Star class="inline float-right text-yellow-500 fill-yellow-500" />
-						{/if}
-						<br />
-						<p class="opacity-50 text-md leading-snug m-0 p-0">
-							{post.item.meta.description}
-						</p>
-						{#if post.item.meta.tags}
-							{#each post.item.meta.tags as tag}
-								<button
-									on:click={() => searchFor(tag)}
-									class="text-sm text-zinc-500 hover:dark:text-zinc-100 hover:text-900 hover:underline transition-all pr-2"
-								>
-									#{tag}
-								</button>
-							{/each}
-						{/if}
-					</div>
-				</a>
+				<PostIcon {searchFor} post={post.item} />
 			{/each}
 		</div>
 		<hr />
