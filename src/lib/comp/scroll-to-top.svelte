@@ -19,7 +19,7 @@
 
 <button
 	on:click={topFunction}
-	class="fixed bottom-4 right-4 p-2 bg-sky-500/20 dark:text-white text-black rounded-full backdrop-blur-md"
+	class="fixed bottom-4 right-4 p-2 bg-sky-500/20 hover:bg-sky-500/40 transition-all dark:text-white text-black rounded-full backdrop-blur-md"
 	style="display: {showButton ? 'block' : 'none'}"
 >
 	<ChevronUp />

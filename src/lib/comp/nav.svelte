@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { browser } from '$app/environment';
 	import { page } from '$app/stores';
 	import Fuse from 'fuse.js';
 	import { Github, Globe, Rss, Code2, Menu, Search, X } from 'lucide-svelte';
@@ -50,6 +51,31 @@
 	];
 
 	$: activeUrl = $page.url.pathname;
+
+	let scrollTop: any = null;
+	let scrollLeft: any = null;
+
+	function disableScroll() {
+		if (browser) {
+			scrollTop = window.pageYOffset || window.document.documentElement.scrollTop;
+			(scrollLeft = window.pageXOffset || window.document.documentElement.scrollLeft),
+				(window.onscroll = function () {
+					window.scrollTo(scrollLeft, scrollTop);
+				});
+		}
+	}
+
+	function enableScroll() {
+		if (browser) {
+			window.onscroll = function () {};
+		}
+	}
+
+	$: if (searchMenu) {
+		disableScroll();
+	} else {
+		enableScroll();
+	}
 </script>
 
 <nav
@@ -127,7 +153,7 @@
 		on:click={() => {
 			searchMenu = false;
 		}}
-		class="w-screen h-screen absolute top-0 backdrop-blur-md z-20 flex justify-center align-center"
+		class="w-screen h-screen absolute top-0 backdrop-blur-md z-20 flex justify-center align-center overflow-hidden"
 	>
 		<div
 			on:click={doNothing}
@@ -156,7 +182,7 @@
 							href={post.item.path}
 						>
 							<div
-								class="bg-zinc-300 dark:bg-zinc-800 rounded-xl hover:bg-sky-300/20 transition-all dark:hover:bg-sky-700/20 p-3"
+								class="bg-zinc-200 dark:bg-zinc-800 rounded-xl hover:bg-sky-300/20 transition-all dark:hover:bg-sky-700/20 p-3"
 							>
 								<strong>{post.item.meta.title}</strong>
 								<br />
