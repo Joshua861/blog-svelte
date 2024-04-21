@@ -2,6 +2,7 @@
 title: "'The history of programming languages' video credits"
 date: 2023-09-01
 description: "The credits for the video version of 'The history of programming languages'."
+good: false
 ---
 
 ## Part 1

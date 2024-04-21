@@ -1,6 +1,19 @@
-<script type="text/javascript">
+<script lang="ts">
+	import ListPost from '$lib/comp/list-post.svelte';
+	import { onMount } from 'svelte';
 	export let data;
 	import Time from 'svelte-time';
+
+	let good: any[], bad: any[];
+
+	$: console.log(data.posts);
+
+	onMount(() => {
+		good = data.posts.filter((post: any) => post.meta.good === true);
+		console.log(good);
+		bad = data.posts.filter((post: any) => post.meta.good !== true);
+		console.log(bad);
+	});
 </script>
 
 <svelte:head>
@@ -9,19 +22,20 @@
 
 <h1>Posts</h1>
 
-{#each data.posts as post}
-	<h3>
-		<a class="font-bold mb-0" href={post.path}>
-			{post.meta.title}
-		</a>
-	</h3>
-	<p>
-		<span class="text-sm text-zinc-500 italic">
-			Published <Time class="" timestamp={post.meta.date} />
-		</span><br />
-		<span class="text-xl">
-			{post.meta.description}
-		</span>
-	</p>
+{#if good}
+	<div class="flex flex-col gap-5">
+		{#each good as post}
+			<ListPost {post} />
+		{/each}
+	</div>
+{/if}
+{#if good?.length != 0 && bad?.length != 0}
 	<hr />
-{/each}
+{/if}
+{#if bad}
+	<div class="flex flex-col gap-5">
+		{#each bad as post}
+			<ListPost {post} />
+		{/each}
+	</div>
+{/if}

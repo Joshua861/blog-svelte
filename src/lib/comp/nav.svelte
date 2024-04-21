@@ -140,7 +140,7 @@
 				<li class="list-none w-max ml-0">
 					<a href={link.href}>
 						<svelte:component this={link.icon} class="inline mr-3" />
-						<span class="font-normal hover:underline">{link.name}</span>
+						<span class="font-normal">{link.name}</span>
 					</a>
 				</li>
 			{/each}
@@ -170,7 +170,7 @@
 				/>
 				<button on:click={() => (searchMenu = false)}>
 					<X
-						class="opacity-50 my-auto ml-3 hover:stroke-sky-500 transition-all hover:opacity-100"
+						class="opacity-50 my-auto ml-3 aspect-square hover:stroke-sky-500 transition-all hover:opacity-100"
 					/>
 				</button>
 			</div>
@@ -186,9 +186,9 @@
 							>
 								<strong>{post.item.meta.title}</strong>
 								<br />
-								<span class="text-zinc-500 text-sm">
+								<p class="text-zinc-500 text-sm leading-snug m-0 p-0">
 									{post.item.meta.description}
-								</span>
+								</p>
 							</div>
 						</a>
 					{/each}

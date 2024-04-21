@@ -1,6 +1,6 @@
 <script>
 	import { ChevronUp } from 'lucide-svelte';
-	import { fade } from 'svelte/transition';
+	import { fly } from 'svelte/transition';
 
 	let showButton = false;
 
@@ -24,7 +24,7 @@
 
 {#if showButton}
 	<button
-		transition:fade
+		transition:fly={{ y: 200 }}
 		on:click={topFunction}
 		class="fixed bottom-4 right-4 p-2 bg-sky-500/20 hover:bg-sky-500/40 transition-all dark:text-white text-black rounded-full backdrop-blur-md"
 	>
