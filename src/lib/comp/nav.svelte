@@ -2,12 +2,12 @@
 	import { browser } from '$app/environment';
 	import { page } from '$app/stores';
 	import Fuse from 'fuse.js';
-	import { Github, Globe, Rss, Code2, Menu, Search, X } from 'lucide-svelte';
+	import { Github, Globe, Rss, Code2, Menu, Search, X, Star } from 'lucide-svelte';
 	import { onMount } from 'svelte';
 	import { slide } from 'svelte/transition';
 
 	let showMenu = false;
-	let searchMenu = false;
+	let searchMenu = true;
 	let search: string = '';
 	let posts, fuse: any, results;
 
@@ -136,6 +136,15 @@
 			class="rounded-2xl h-fit dark:bg-zinc-800/50 bg-zinc-200/50 m-3 p-5 prose dark:prose-invert"
 			transition:slide
 		>
+			<div class="absolute w-full max-w-screen flex justify-end align-center">
+				<button
+					on:click={() => {
+						showMenu = false;
+					}}
+				>
+					<X class="mr-16 hover:text-sky-500 hover:opacity-100 transition-all opacity-40" />
+				</button>
+			</div>
 			{#each links as link}
 				<li class="list-none w-max ml-0">
 					<a href={link.href}>
@@ -174,25 +183,30 @@
 					/>
 				</button>
 			</div>
-			{#if results.length !== 0}
-				<div class="flex flex-col gap-3 pt-3">
-					{#each results as post}
-						<a
-							class="no-underline hover:dark:text-zinc-100 hover:text-zinc-900"
-							href={post.item.path}
-						>
-							<div
-								class="bg-zinc-200 dark:bg-zinc-800 rounded-xl hover:bg-sky-300/20 transition-all dark:hover:bg-sky-700/20 p-3"
+			{#if results}
+				{#if results.length !== 0}
+					<div class="flex flex-col gap-3 pt-3">
+						{#each results as post}
+							<a
+								class="no-underline hover:dark:text-zinc-100 hover:text-zinc-900"
+								href={post.item.path}
 							>
-								<strong>{post.item.meta.title}</strong>
-								<br />
-								<p class="text-zinc-500 text-sm leading-snug m-0 p-0">
-									{post.item.meta.description}
-								</p>
-							</div>
-						</a>
-					{/each}
-				</div>
+								<div
+									class="bg-zinc-200 dark:bg-zinc-800 rounded-xl hover:bg-sky-300/20 transition-all dark:hover:bg-sky-700/20 p-3"
+								>
+									<strong>{post.item.meta.title}</strong>
+									{#if post.item.meta.good}
+										<Star class="inline float-right text-yellow-500 fill-yellow-500" />
+									{/if}
+									<br />
+									<p class="text-zinc-500 text-sm leading-snug m-0 p-0">
+										{post.item.meta.description}
+									</p>
+								</div>
+							</a>
+						{/each}
+					</div>
+				{/if}
 			{/if}
 		</div>
 	</div>
