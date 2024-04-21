@@ -1,8 +1,8 @@
 <script lang="ts">
 	import Time from 'svelte-time';
 
-	export let title;
-	export let date;
+	export let title: string;
+	export let date: string;
 </script>
 
 <svelte:head>

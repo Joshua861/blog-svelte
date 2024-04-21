@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
+	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
 	import Fuse from 'fuse.js';
 	import { Github, Globe, Rss, Code2, Menu, Search, X, Star } from 'lucide-svelte';
@@ -10,21 +11,46 @@
 	let searchMenu = false;
 	let search: string = '';
 	let posts, fuse: any, results;
+	let mounted = false;
+	let q: string | null;
 
 	onMount(async () => {
 		const response = await fetch(`/api/posts`);
 		posts = await response.json();
 		console.log(posts);
-		fuse = new Fuse(posts, { keys: ['meta.title', 'meta.description', 'path'] });
+		fuse = new Fuse(posts, { keys: ['meta.title', 'meta.description', 'path', 'meta.tags'] });
+
+		q = $page.url.searchParams.get('q');
+
+		if (q) {
+			search = q;
+			searchMenu = true;
+			updateSearch();
+		}
+
+		mounted = true;
 	});
 
+	function searchFor(string: string) {
+		search = string;
+		event?.preventDefault();
+		updateSearch();
+	}
+
+	function closeSearch() {
+		searchMenu = false;
+		let s = new URLSearchParams($page.url.searchParams.toString());
+		s.set('q', '');
+		goto(`?${s.toString()}`);
+	}
+
 	function updateSearch() {
-		results = fuse.search(search).slice(0, 5);
+		results = fuse.search(search).slice(0, 4);
 		console.log(results);
 	}
 
 	function doNothing() {
-		event.stopPropagation();
+		event!.stopPropagation();
 	}
 
 	let links = [
@@ -57,8 +83,8 @@
 
 	function disableScroll() {
 		if (browser) {
-			scrollTop = window.pageYOffset || window.document.documentElement.scrollTop;
-			(scrollLeft = window.pageXOffset || window.document.documentElement.scrollLeft),
+			scrollTop = window.scrollY || window.document.documentElement.scrollTop;
+			(scrollLeft = window.scrollX || window.document.documentElement.scrollLeft),
 				(window.onscroll = function () {
 					window.scrollTo(scrollLeft, scrollTop);
 				});
@@ -159,9 +185,7 @@
 
 {#if searchMenu}
 	<div
-		on:click={() => {
-			searchMenu = false;
-		}}
+		on:click={closeSearch}
 		class="w-screen h-screen absolute top-0 backdrop-blur-md z-20 flex justify-center align-center overflow-hidden"
 	>
 		<div
@@ -177,7 +201,7 @@
 					placeholder="Search posts"
 					autofocus
 				/>
-				<button on:click={() => (searchMenu = false)}>
+				<button on:click={closeSearch}>
 					<X
 						class="opacity-50 my-auto ml-3 aspect-square hover:stroke-sky-500 transition-all hover:opacity-100"
 					/>
@@ -194,14 +218,24 @@
 								<div
 									class="bg-zinc-200 dark:bg-zinc-800 rounded-xl hover:bg-sky-300/20 transition-all dark:hover:bg-sky-700/20 p-3"
 								>
-									<strong>{post.item.meta.title}</strong>
+									<strong class="text-lg">{post.item.meta.title}</strong>
 									{#if post.item.meta.good}
 										<Star class="inline float-right text-yellow-500 fill-yellow-500" />
 									{/if}
 									<br />
-									<p class="text-zinc-500 text-sm leading-snug m-0 p-0">
+									<p class="opacity-50 text-md leading-snug m-0 p-0">
 										{post.item.meta.description}
 									</p>
+									{#if post.item.meta.tags}
+										{#each post.item.meta.tags as tag}
+											<button
+												on:click={() => searchFor(tag)}
+												class="text-sm text-zinc-500 hover:dark:text-zinc-100 hover:text-900 hover:underline transition-all pr-2"
+											>
+												#{tag}
+											</button>
+										{/each}
+									{/if}
 								</div>
 							</a>
 						{/each}

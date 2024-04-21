@@ -3,7 +3,7 @@
 	import Comment from './comment.svelte';
 
 	export let pathname: string;
-	let comments = [];
+	let comments: any[] = [];
 
 	onMount(async () => {
 		fetchComments();
