@@ -13,8 +13,12 @@
 	}
 
 	function topFunction() {
+		document.getElementById('html').classList.add('scroll-smooth');
+
 		document.body.scrollTop = 0; // For Safari
 		document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+
+		document.getElementById('html').classList.remove('scroll-smooth');
 	}
 </script>
 
