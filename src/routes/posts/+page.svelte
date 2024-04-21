@@ -3,6 +3,10 @@
 	import Time from 'svelte-time';
 </script>
 
+<svelte:head>
+	<title>Posts - Josh's blog</title>
+</svelte:head>
+
 <h1>Posts</h1>
 
 {#each data.posts as post}
