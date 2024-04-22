@@ -1,12 +1,16 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import Comment from './comment.svelte';
+	import Box from './box.svelte';
+	import { CircleDashed, Loader } from 'lucide-svelte';
 
 	export let pathname: string;
 	let comments: any[] = [];
+	let loaded = false;
 
 	onMount(async () => {
-		fetchComments();
+		await fetchComments();
+		loaded = true;
 	});
 
 	export async function fetchComments() {
@@ -18,10 +22,18 @@
 	}
 </script>
 
-{#if comments}
-	{#each comments as comment}
-		<Comment {comment} />
-	{/each}
+{#if loaded}
+	{#if comments.length !== 0}
+		{#each comments as comment}
+			<Comment {comment} />
+		{/each}
+	{:else}
+		<Box Class="flex justify-center align-middle"><div>No comments... yet?</div></Box>
+	{/if}
+{:else}
+	<Box Class="flex justify-center align-middle"
+		><div><Loader class="animate-spin inline mr-3" /> Comments loading...</div></Box
+	>
 {/if}
 
 <br />
